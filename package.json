@@ -1,0 +1,24 @@
+{
+  "name": "project1-warriors-blog",
+  "version": "1.0.0",
+  "description": "project 1, creating a warriors blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virginiachae/project1-warriors-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/virginiachae/project1-warriors-blog/issues"
+  },
+  "homepage": "https://github.com/virginiachae/project1-warriors-blog#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.8"
+  }
+}
