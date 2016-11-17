@@ -53,13 +53,21 @@ db.User.remove({}, function(err, users) {
                     }
                     blog.blogPoster = foundBlogPoster;
                     blog.save(function(err, savedBlog) {
-                      console.log('this is the final blog' + savedBlog);
-                        if (err) {
-                            return console.log('error!!!' + err);
-                        }
-                    })
-                })
-            })
+                      if (err) {
+                        return console.log('error!!!' + err);
+                      }
+                        console.log('this is the final blog' + savedBlog);
+                        // savedBlog
+                        //     .populate('blogPoster');
+                            // .exec(function(err, wholeShebang) {
+                            //   if (err) {
+                            //       return console.log('error!!!' + err);
+                            //   }
+                            //     console.log(wholeShebang);
+                            // });
+                    });
+                });
+            });
 
 
         });
