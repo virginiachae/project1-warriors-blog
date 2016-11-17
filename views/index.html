@@ -66,6 +66,9 @@
                     <li>
                         <a href="contact.html">Contact</a>
                     </li>
+                    <li>
+                        <button id="createUser" name="createUser">Creat User</button>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -102,7 +105,7 @@
                             Rumor has Klay to Boston? Story <a href="http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/">Here</a>
                         </h2>
                         <h3 class="post-subtitle">
-                            {{blogComment}}
+                            {{blogBody}}
                         </h3>
                     <!-- </a> -->
                     <p class="post-meta">Posted by <b>{{blogPoster}}</b> on September 24, 2014</p>
@@ -118,6 +121,80 @@
     </div>
 </script>
 </div>
+
+<div class="col-md-10 col-md-offset-1">
+            <section id='user-form' class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <form class="form-horizontal" method="post" action="/api/users">
+                            <fieldset>
+
+                                <!-- Form Name -->
+                                <legend>Create New User</legend>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="name">Name</label>
+                                    <div class="col-md-4">
+                                        <input id="name" name="name" type="text" placeholder="First and Last" class="clear form-control input-md" required="">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="username">Username</label>
+                                    <div class="col-md-4">
+                                        <input id="username" name="username" type="text" placeholder="Username" class=" clear form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="password">Password</label>
+                                    <div class="col-md-4">
+                                        <input id="password" name="password" type="text" placeholder="password" class="clear form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="email">Email</label>
+                                    <div class="col-md-4">
+                                        <input id="email" name="email" type="text" placeholder="email" class="clear form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="imgUrl">Image URL</label>
+                                    <div class="col-md-4">
+                                        <input id="imgUrl" name="imgUrl" type="text" placeholder="image url" class="clear form-control input-md">
+
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="singlebutton">Create</label>
+                                    <div class="col-md-4">
+                                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+
+
+
 <!-- Pager -->
       <ul class="pager">
           <li class="next">
@@ -163,6 +240,11 @@
             </div>
         </div>
     </footer>
+
+
+
+
+
 
     <!-- jQuery -->
     <script src="/styles/vendor/jquery/jquery.min.js"></script>
