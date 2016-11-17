@@ -97,7 +97,7 @@
 <div id="blogs">    <!-- Main Content -->
 <script id="blog-template" type="text/x-handlebars-template">
     <div class="container">
-        <div class="row">
+        <div class="row" data-blog-id={{_id}}>
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <!-- <a href="post.html"> -->
@@ -111,7 +111,7 @@
                     <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on September 24, 2014</p>
                 </div>
                 <div class='panel-footer'>
-                    <button class='btn btn-danger delete-post'>Delete Post</button>
+                    <button class='btn btn-danger delete-blog'>Delete Post</button>
                     <button class='btn btn-info edit-post'>Edit Post</button>
                     <button class='btn btn-success save-post hidden'>Save Changes</button>
                 </div>

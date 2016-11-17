@@ -27,6 +27,9 @@ app.get('/api/blogs', controllers.blog.index);
 
 app.post('/api/users', controllers.user.create);
 
+app.get('/api/blogs/:blogId', controllers.blog.show);
+
+app.delete('/api/blogs/:blogId', controllers.blog.destroy);
 
 
 
