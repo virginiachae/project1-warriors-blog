@@ -28,6 +28,32 @@ $(document).ready(function() {
         };
 
 
-
+$('.form-horizontal').on('submit', createUserAccount);
 
 });
+
+
+function createUserAccount({
+  e.preventDefault();
+
+  var userData = $(this).serialize();
+  console.log(userData);
+  $.ajax({
+    method: 'POST',
+    url: '/api/users',
+    data: userData,
+    success: createSucc,
+    error: createErr
+  });
+  function createErr(error){
+    console.error(error);
+  }
+
+  function createSucc(user){
+    $('.clear').val('');
+    renderAlbum(user);
+  };
+location.reload();
+
+});
+)

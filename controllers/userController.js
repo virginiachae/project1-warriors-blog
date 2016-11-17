@@ -9,9 +9,22 @@ db.User.find(function(err, user){
   });
 }
 
+
+function create(req, res) {
+  var newUser = new db.User(req.body);
+  newUser.save(function(err, user){
+    if(err){
+      console.error(err);
+    }
+    console.log(user);
+    res.json(user);
+  });
+
+}
+
 module.exports = {
   index: index,
-  // create: create,
+  create: create,
   // show: show,
   // destroy: destroy,
   // update: update
