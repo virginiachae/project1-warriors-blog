@@ -16,7 +16,7 @@ var BlogSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
- blogComment: [CommentsSchema]
+ blogComment: [CommentsSchema],
 });
 
 var Blog = mongoose.model('Blog', BlogSchema);
