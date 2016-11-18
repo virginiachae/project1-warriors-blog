@@ -28,10 +28,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- jQuery -->
     <script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="scripts/app.js"></script>
 
@@ -94,10 +93,13 @@
 
 
 
-<div id="blogs">    <!-- Main Content -->
+<div id="blogsTarget">    <!-- Main Content -->
 <script id="blog-template" type="text/x-handlebars-template">
     <div class="container">
-        <div class="row" data-blog-id={{_id}}>
+        <div class="row">
+
+        <div class="blogId" data-blogId="{{_id}}">
+
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <!-- <a href="post.html"> -->
@@ -111,11 +113,11 @@
                     <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on September 24, 2014</p>
                 </div>
                 <div class='panel-footer'>
-                    <button class='btn btn-danger delete-blog'>Delete Post</button>
+                    <button class='btn btn-danger delete-blog' data-id={{_id}} >Delete Post</button>
                     <button class='btn btn-info edit-post'>Edit Post</button>
                     <button class='btn btn-success save-post hidden'>Save Changes</button>
                 </div>
-
+                  </div>
             </div>
         </div>
     </div>
@@ -155,7 +157,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="password">Password</label>
                                     <div class="col-md-4">
-                                        <input id="password" name="password" type="text" placeholder="password" class="clear form-control input-md">
+                                        <input id="password" name="password" type="password" placeholder="password" class="clear form-control input-md">
 
                                     </div>
                                 </div>
@@ -246,8 +248,6 @@
 
 
 
-    <!-- jQuery -->
-    <script src="/styles/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="styles/vendor/bootstrap/js/bootstrap.min.js"></script>

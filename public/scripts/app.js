@@ -1,44 +1,43 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-    var hb = Handlebars;
-    var blogSource = $('#blog-template').html();
-    var blogTemplate = hb.compile(blogSource);
+  $.ajax({
+    method: 'GET',
+    url: '/api/blogs',
+    success: getBlogSucc,
+    error: getBlogErr
 
-    function renderBlog(blog) {
-        var blogHtml = blogTemplate(blog);
-      	$('#blogs').append(blogHtml);
-      }
+  });
 
-      $.ajax({
-          method: 'GET',
-          url: '/api/blogs',
-          success: getBlogSucc,
-          error: getBlogErr
 
-        });
-
-        function getBlogErr(error){
-            console.error(error);
-          }
-
-          function getBlogSucc(json){
-            json.forEach(function(ele){
-            renderBlog(ele);
-            console.log(ele);
-          })
-        };
 
 
 $('.form-horizontal').on('submit', createUserAccount);
-$('#blogs').on('click', '.delete-blog', handleDeleteBlogClick);
+$('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
 
 });
+
+function getBlogErr(error){
+    console.error(error);
+  }
+
+  function getBlogSucc(json){
+    json.forEach(function(ele){
+    renderBlog(ele);
+    // console.log(ele);
+  })
+};
+
+function renderBlog(blog) {
+    var blogSource = $('#blog-template').html();
+    var blogTemplate = Handlebars.compile(blogSource);
+    var blogHtml = blogTemplate(blog);
+    $('#blogsTarget').append(blogHtml);
+  }
 
 
 function createUserAccount(e){
   e.preventDefault();
-
   var userData = $(this).serialize();
   console.log(userData);
   $.ajax({
@@ -62,9 +61,8 @@ location.reload();
 
 
 function handleDeleteBlogClick(e) {
-  console.log('clicked');
-  var blogId = $(this).parents('#blog').data('blog-id');
-  
+  var blogId = $(this).attr('data-id');
+
   console.log('someone wants to delete blog id=' + blogId );
   $.ajax({
     url: '/api/blogs/' + blogId,
@@ -75,7 +73,8 @@ function handleDeleteBlogClick(e) {
 
 // callback after DELETE /api/blog/:id
 function handleDeleteBlogSuccess(data) {
+  console.log(data);
   var deletedBlogId = data._id;
   console.log('removing the following blog from the page:', deletedBlogId);
-  $('div[data-blog-id=' + deletedBlogId + ']').remove();
+  $('div[data-id=' + deletedBlogId + ']').remove();
 }
