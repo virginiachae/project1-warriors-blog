@@ -36,17 +36,29 @@ function show(req, res) {
 
 function update(req, res) {
   console.log('updating with data', req.body);
-  db.Blog.findById(req.params.blogId, function(err, foundBlog) {
-    if(err) { console.log('blogController.update error', err); }
-    foundBlog.blogBody = req.body;
-    console.log(foundBlog);
+  var blogId = req.params.blogId;
+  var bodyUpdate = req.body.blogBody;
 
-    foundBlog.save(function(err, savedBlog) {
-      if(err) { console.log('saving altered blog failed'); }
-      res.json(savedBlog);
-      console.log(savedBlog);
+  db.Blog.update({ _id: blogId }, {blogBody: bodyUpdate},{returnNewDocument: true, upsert: true}, function iUpdated(err, foundBlog){
+    console.log("I updated to : ", foundBlog);
+    db.Blog.findById(blogId, function sendBackToJon(err, blogForJon){
+      if(err){return console.log(err);}
+      res.json(blogForJon);
     });
   });
+
+  // db.Blog.findById(req.params.blogId, function(err, foundBlog) {
+  //   if(err) { console.log('blogController.update error', err); }
+  //   req.body.blogBody = foundBlog.blogBody;
+  //   // foundBlog.blogBody = req.body;
+  //   console.log(req.body);
+  //
+  //   foundBlog.save(function(err, savedBlog) {
+  //     if(err) { console.log('saving altered blog failed'); }
+  //     res.json(savedBlog);
+  //     console.log(savedBlog);
+  //   });
+  // });
 
 }
 

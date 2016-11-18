@@ -17,6 +17,24 @@ $('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
 $('#blogsTarget').on('click', '.edit-blog', handleBlogEditClick);
 $('#blogsTarget').on('click', '.save-blog', handleSBlogChangesClick);
 
+$('#blogs').on('submit', '#addCommentForm', function(e) {
+        e.preventDefault();
+        var commentData = $(this).serialize();
+        //commentData.id = //put the respective id in here
+        console.log(commentData);
+        $.ajax({
+            method: 'POST',
+            url: '/api/blogs/' + $(this).attr('data-id') + '/comments',
+            data: commentData,
+            success: createCommSucc,
+            error: createCommErr
+        })
+          location.reload();
+    })
+
+
+
+
 });
 
 function getBlogErr(error){
@@ -83,10 +101,10 @@ function handleDeleteBlogSuccess(data) {
 
 
 function handleBlogEditClick(e) {
-  var $blogRow = $(this).closest('#blogsTarget');
+  var $blogRow = $(this).closest('.blogId');
   console.log($blogRow);
   var blogId = $(this).attr('data-id');
-  console.log('edit blog', blogId);
+  // console.log('edit blog', blogId);
 
 
 
@@ -98,6 +116,7 @@ function handleBlogEditClick(e) {
 
   var editBlogContent = $blogRow.find('span.blog-body').text();
     $blogRow.find('span.blog-body').html('<input class="edit-blog-body" value="' + editBlogContent + '"></input>');
+    // console.log(editBlogContent)
 
     }
 
@@ -107,7 +126,10 @@ function handleBlogEditClick(e) {
 
       var data = {
         blogBody: $blogRow.find('.edit-blog-body').val(),
+
       };
+      console.log(data);
+
       console.log('PUTing data for Blog', blogId, 'with data', data);
       $.ajax({
         method: 'PUT',
@@ -121,8 +143,18 @@ function handleBlogEditClick(e) {
     function handleBlogUpdatedResponse(data) {
       console.log('response to update', data);
 
+
       var blogId = data._id;
       // scratch this album from the page
       // $('div[data-id=' + blogId + ']').remove();
 
     }
+
+
+    function createCommErr(error) {
+        console.error('error is ', error);
+    }
+
+    function createCommSucc(comment) {
+      renderBlog();
+    };

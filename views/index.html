@@ -107,16 +107,36 @@
                             Rumor has Klay to Boston? Story <a href="http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/">Here</a>
                         </h2>
 
-                        <h3 class="post-subtitle">
-                            <span class='blog-body'>{{blogBody}}</span>
-                        </h3>
+                        <p class="post-subtitle">
+                          <span class='blog-body'>
+                             {{blogBody}}
+                           </span>
+                         </p>
                     <!-- </a> -->
                     <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on September 24, 2014</p>
                 </div>
+                {{#each blogComment}}
+                        <div class='panel-footer' id="ind-comments">
+                            <div><strong>{{user}} says:</strong></div>
+                            <div>{{commentBody}}</div>
+                        </div>
+                        {{/each}}
+                        <br>
+                        <div class='panel-footer'>
+                            <form class="commentForm" id="addCommentForm" data-id={{_id}}>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="user" placeholder="please enter your username" data-id={{_id}}>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="commentBody" placeholder="leave a comment!" cols="50" data-id={{_id}}></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default">Add comments</button>
+                            </form>
+                        </div>
                 <div class='panel-footer'>
                     <button class='btn btn-danger delete-blog' data-id={{_id}} >Delete Post</button>
-                    <button class='btn btn-info edit-blog' data-id={{_id}} >Edit Post</button>
-                    <button class='btn btn-success save-blog hidden' data-id={{_id}} >Save Changes</button>
+                    <button class='btn btn-info edit-blog' data-id="{{_id}}" >Edit Post</button>
+                    <button class='btn btn-success save-blog hidden' data-id="{{_id}}" >Save Changes</button>
                 </div>
                   </div>
             </div>
