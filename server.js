@@ -18,8 +18,18 @@ var controllers = require('./controllers');
 
 
 app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/mainView.html');
+});
+
+
+app.get('/onlyUsAdminsKnow', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/onlyUsAdminsKnow/createPost', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/createPost.html');
+});
+
 
 app.get('/api/users', controllers.user.index);
 
