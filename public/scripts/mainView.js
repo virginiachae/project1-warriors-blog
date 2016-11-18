@@ -41,7 +41,15 @@ $(document).ready(function() {
             success: createCommSucc,
             error: createCommErr
         })
-          location.reload();
+        function createCommErr(error) {
+            console.error('error is ', error);
+        }
+
+        function createCommSucc() {
+          // renderBlog(ele);
+          console.log(commentData);
+        };
+          // location.reload();
     })
 });
 
@@ -67,12 +75,4 @@ function createUserAccount(e) {
     };
     location.reload();
 
-};
-
-function createCommErr(error) {
-    console.error('error is ', error);
-}
-
-function createCommSucc(comment) {
-  renderBlog();
 };

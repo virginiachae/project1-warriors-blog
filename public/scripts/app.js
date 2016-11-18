@@ -12,6 +12,8 @@ $(document).ready(function() {
 
 
 
+
+
 $('.form-horizontal').on('submit', createUserAccount);
 $('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
 $('#blogsTarget').on('click', '.edit-blog', handleBlogEditClick);
@@ -31,6 +33,8 @@ $('#blogs').on('submit', '#addCommentForm', function(e) {
         })
           location.reload();
     })
+
+
 
 
 
@@ -151,10 +155,4 @@ function handleBlogEditClick(e) {
     }
 
 
-    function createCommErr(error) {
-        console.error('error is ', error);
-    }
-
-    function createCommSucc(comment) {
-      renderBlog();
-    };
+  
