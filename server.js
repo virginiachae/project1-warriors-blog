@@ -18,8 +18,18 @@ var controllers = require('./controllers');
 
 
 app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/mainView.html');
+});
+
+
+app.get('/onlyUsAdminsKnow', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/createPost', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/createPost.html');
+});
+
 
 app.get('/api/users', controllers.user.index);
 
@@ -27,15 +37,13 @@ app.get('/api/blogs', controllers.blog.index);
 
 app.post('/api/users', controllers.user.create);
 
+app.get('/api/blogs/:blogId', controllers.blog.show);
+
+app.delete('/api/blogs/:blogId', controllers.blog.destroy);
+
+app.put('/api/blogs/:blogId', controllers.blog.update);
+
 app.post('/api/blogs/:id/comments', controllers.blog.create)
-
-
-
-
-
-
-
-
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');

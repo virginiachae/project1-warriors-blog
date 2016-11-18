@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +17,6 @@
     <!-- Theme CSS -->
     <link href="styles/css/clean-blog.min.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="/styles/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -27,13 +28,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/mainView.js"></script>
+
 </head>
 
 <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -50,10 +52,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#blogsTarget">Home</a>
+                        <a href="#blogs">Home</a>
                     </li>
                     <li>
-                        <a href="#createAnAccount">Create an Account</a>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#createNewAccount">Create New Account</a>
+                    </li>
+                    <li>
+                        <a href="#login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -63,7 +71,6 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="background-image: url('http://i.imgur.com/aZROrVf.jpg')">
         <div class="container">
             <div class="row">
@@ -78,117 +85,104 @@
         </div>
     </header>
 
+
     <!-- Main Content -->
-    <div id="blogsTarget">
+    <div id="blogs">
         <script id="blog-template" type="text/x-handlebars-template">
             <div class="container">
                 <div class="row">
-                    <div class="blogId" data-blogId="{{_id}}">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                            <div class="post-preview">
-                                <h2 class="post-title">
-                                  Rumor has Klay to Boston? Story <a href="http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/">Here</a>
-                                </h2>
-                                <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on November 14, 2016</p>
-                                <p class="post-subtitle">
-                                  <span class='blog-body'>
-                                    {{blogBody}}
-                                  </span>
-                                </p>
-                            </div>
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-preview">
+                            <!-- <a href="post.html"> -->
+                            <h2 class="post-title">
+                            Rumor has Klay to Boston? Story <a href="http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/">Here</a>
+                        </h2>
+                            <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on September 24, 2014</p>
+                            <p class="post-subtitle">
+                                {{blogBody}}
+                            </p>
 
-                            <!-- delete and edit buttons -->
-                            <div class='panel-footer'>
-                                <button class='btn btn-danger delete-blog' data-id={{_id}}>Delete Post</button>
-                                <button class='btn btn-info edit-blog' data-id="{{_id}}">Edit Post</button>
-                                <button class='btn btn-success save-blog hidden' data-id="{{_id}}">Save Changes</button>
-                            </div>
-
-                            <!-- comments section -->
-                            <p class="post-meta"><strong>{{blogComment.length}} comments</strong></p>
-                            {{#each blogComment}}
-                            <div class='panel-footer ind-comments'>
-                                <div><strong>{{user}} says:</strong></div>
-                                <div>{{commentBody}}</div>
-                            </div>
-                            {{/each}}
-                            <br>
-                            <div class='panel-footer'>
-                                <form class="commentForm" id="addCommentForm" data-id={{_id}}>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="user" placeholder="please enter your username" data-id={{_id}}>
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control" name="commentBody" placeholder="leave a comment!" cols="50" data-id={{_id}}></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-default">Add comments</button>
-                                </form>
-                            </div>
+                        </div>
+                        <!-- comments -->
+                        <p class="post-meta"><strong>{{blogComment.length}} comments</strong></p>
+                        {{#each blogComment}}
+                        <div class='panel-footer' id="ind-comments">
+                            <div><strong>{{user}} says:</strong></div>
+                            <div>{{commentBody}}</div>
+                        </div>
+                        <br> {{/each}}
+                        <div class='panel-footer'>
+                            <form class="commentForm" id="addCommentForm" data-id={{_id}}>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="user" placeholder="please enter your username" data-id={{_id}}>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="commentBody" placeholder="leave a comment!" cols="50" data-id={{_id}}></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default">Add comments</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </script>
     </div>
-<br>
+
+    <!-- Older Posts -->
+    <ul class="pager">
+        <li class="next">
+            <a href="#">Older Posts &rarr;</a>
+        </li>
+    </ul>
+
+    <!-- New User Form -->
     <div class="col-md-10 col-md-offset-1">
         <section id='user-form' class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-
                     <form class="form-horizontal" method="post" action="/api/users">
                         <fieldset>
-
                             <!-- Form Name -->
-                            <legend id='createAnAccount'>Create New User</legend>
-
-                            <!-- Text input-->
+                            <legend id='createNewAccount'>Create New User</legend>
+                            <!-- Text input: Name-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Name</label>
                                 <div class="col-md-4">
                                     <input id="name" name="name" type="text" placeholder="First and Last" class="clear form-control input-md" required="">
-
                                 </div>
                             </div>
-
-                            <!-- Text input-->
+                            <!-- Text input: username-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username">Username</label>
                                 <div class="col-md-4">
                                     <input id="username" name="username" type="text" placeholder="Username" class=" clear form-control input-md">
-
                                 </div>
                             </div>
-
-                            <!-- Text input-->
+                            <!-- Text input: password-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="password">Password</label>
                                 <div class="col-md-4">
-                                    <input id="password" name="password" type="password" placeholder="password" class="clear form-control input-md">
-
+                                    <input id="password" name="password" type="text" placeholder="password" class="clear form-control input-md">
+                                  </div>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="email">Email</label>
-                                <div class="col-md-4">
+                                <!-- Text input: email-->
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label" for="email">Email</label>
+                                  <div class="col-md-4">
                                     <input id="email" name="email" type="text" placeholder="email" class="clear form-control input-md">
-
-                                </div>
+                                  </div>
                             </div>
-
+                            <!-- Text input: image url-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="imgUrl">Image URL</label>
                                 <div class="col-md-4">
                                     <input id="imgUrl" name="imgUrl" type="text" placeholder="image url" class="clear form-control input-md">
-
                                 </div>
                             </div>
-
-                            <!-- Button -->
+                            <!-- Button to submit -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="singlebutton">Create</label>
-                                <div class="col-md-4">
+                                <!-- <label class="col-md-4 control-label" for="singlebutton">Create</label> -->
+                                <div class="col-md-4 col-xs-offset-5">
                                     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
@@ -198,17 +192,6 @@
             </div>
         </section>
     </div>
-
-
-
-
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-            <a href="#">Older Posts &rarr;</a>
-        </li>
-    </ul>
-
 
     <!-- Footer -->
     <footer>
@@ -253,6 +236,8 @@
 
 
 
+    <!-- jQuery -->
+    <script src="/styles/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="styles/vendor/bootstrap/js/bootstrap.min.js"></script>
