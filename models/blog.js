@@ -3,10 +3,7 @@ var Schema = mongoose.Schema;
 User = require('./user');
 
 var CommentsSchema = new Schema({
-  user: {
-       type: Schema.Types.ObjectId,
-       ref: 'User'
-     },
+  user: String,
   commentBody: String
 });
 

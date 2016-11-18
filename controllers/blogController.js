@@ -9,16 +9,20 @@ function index(req, res) {
         });
 }
 
-//   function(err, blog){
-//     if (err) {
-//       return console.log(err);
-//     }
-//
-//     res.json(blog);
-//   });
-// }
-
-
+function create(req, res) {
+    db.Blog.findById(req.params.id)
+        .populate('blogPoster')
+        .exec(function(err, foundBlog) {
+            if (err) {
+                console.log('error is: ', err);
+            } else {
+                console.log(foundBlog);
+                foundBlog.blogComment.push(req.body);
+                foundBlog.save()
+                res.json(foundBlog);
+            }
+        })
+}
 
 
 
@@ -28,7 +32,7 @@ function index(req, res) {
 
 module.exports = {
     index: index,
-    // create: create,
+    create: create,
     // show: show,
     // destroy: destroy,
     // update: update

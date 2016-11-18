@@ -27,6 +27,8 @@ app.get('/api/blogs', controllers.blog.index);
 
 app.post('/api/users', controllers.user.create);
 
+app.post('/api/blogs/:id/comments', controllers.blog.create)
+
 
 
 
