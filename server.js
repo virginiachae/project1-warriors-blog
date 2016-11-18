@@ -31,6 +31,8 @@ app.get('/api/blogs/:blogId', controllers.blog.show);
 
 app.delete('/api/blogs/:blogId', controllers.blog.destroy);
 
+app.put('/api/blogs/:blogId', controllers.blog.update);
+
 
 
 

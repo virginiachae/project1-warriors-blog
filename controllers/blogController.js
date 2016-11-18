@@ -34,6 +34,22 @@ function show(req, res) {
   });
 }
 
+function update(req, res) {
+  console.log('updating with data', req.body);
+  db.Blog.findById(req.params.blogId, function(err, foundBlog) {
+    if(err) { console.log('blogController.update error', err); }
+    foundBlog.blogBody = req.body;
+    console.log(foundBlog);
+
+    foundBlog.save(function(err, savedBlog) {
+      if(err) { console.log('saving altered blog failed'); }
+      res.json(savedBlog);
+      console.log(savedBlog);
+    });
+  });
+
+}
+
 
 
 
@@ -44,5 +60,5 @@ module.exports = {
     // create: create,
     show: show,
     destroy: destroy,
-    // update: update
+    update: update
 };

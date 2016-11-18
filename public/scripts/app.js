@@ -14,6 +14,8 @@ $(document).ready(function() {
 
 $('.form-horizontal').on('submit', createUserAccount);
 $('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
+$('#blogsTarget').on('click', '.edit-blog', handleBlogEditClick);
+$('#blogsTarget').on('click', '.save-blog', handleSBlogChangesClick);
 
 });
 
@@ -78,3 +80,49 @@ function handleDeleteBlogSuccess(data) {
   console.log('removing the following blog from the page:', deletedBlogId);
   $('div[data-id=' + deletedBlogId + ']').remove();
 }
+
+
+function handleBlogEditClick(e) {
+  var $blogRow = $(this).closest('#blogsTarget');
+  console.log($blogRow);
+  var blogId = $(this).attr('data-id');
+  console.log('edit blog', blogId);
+
+
+
+  // show the save changes button
+  $blogRow.find('.save-blog').toggleClass('hidden');
+  // hide the edit button
+  $blogRow.find('.edit-blog').toggleClass('hidden');
+
+
+  var editBlogContent = $blogRow.find('span.blog-body').text();
+    $blogRow.find('span.blog-body').html('<input class="edit-blog-body" value="' + editBlogContent + '"></input>');
+
+    }
+
+    function handleSBlogChangesClick(e) {
+      var blogId = $(this).attr('data-id'); // $(this).closest would have worked fine too
+      var $blogRow = $(this).closest('#blogsTarget');
+
+      var data = {
+        blogBody: $blogRow.find('.edit-blog-body').val(),
+      };
+      console.log('PUTing data for Blog', blogId, 'with data', data);
+      $.ajax({
+        method: 'PUT',
+        url: '/api/blogs/' + blogId,
+        data: data,
+        success: handleBlogUpdatedResponse
+      });
+      // location.reload();
+    }
+
+    function handleBlogUpdatedResponse(data) {
+      console.log('response to update', data);
+
+      var blogId = data._id;
+      // scratch this album from the page
+      // $('div[data-id=' + blogId + ']').remove();
+
+    }
