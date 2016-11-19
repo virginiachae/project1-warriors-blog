@@ -14,7 +14,8 @@ $(document).ready(function() {
 
 
 
-    $('.form-horizontal').on('submit', createUserAccount);
+    $('#form-user').on('submit', createUserAccount);
+    $('#form-blogPost').on('submit', createBlogPost);
     $('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
     $('#blogsTarget').on('click', '.edit-blog', handleBlogEditClick);
     $('#blogsTarget').on('click', '.save-blog', handleSBlogChangesClick);
@@ -86,6 +87,30 @@ function createUserAccount(e) {
     location.reload();
 
 };
+
+function createBlogPost(e) {
+    e.preventDefault();
+    var blogData = $(this).serialize();
+    console.log(blogData);
+    $.ajax({
+        method: 'POST',
+        url: '/api/blogs',
+        data: blogData,
+        success: createBlogSucc,
+        error: createBlogErr
+    });
+
+    function createBlogErr(error) {
+        console.error('error is ', error);
+    }
+
+    function createBlogSucc(user) {
+        $('.clear').val('');
+    };
+    location.reload();
+
+};
+
 
 
 function handleDeleteBlogClick(e) {

@@ -43,7 +43,9 @@ app.delete('/api/blogs/:blogId', controllers.blog.destroy);
 
 app.put('/api/blogs/:blogId', controllers.blog.update);
 
-app.post('/api/blogs/:id/comments', controllers.blog.create)
+app.post('/api/blogs/:id/comments', controllers.blog.createComment);
+
+app.post('/api/blogs/', controllers.blog.create);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');

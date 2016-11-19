@@ -86,10 +86,11 @@
                     <div class="blogId" data-blogId="{{_id}}">
                         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                             <div class="post-preview">
-                                <h2 class="post-title">
-                                  Rumor has Klay to Boston? Story <a href="http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/">Here</a>
-                                </h2>
-                                <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on November 14, 2016</p>
+                              <h2 class="post-title">
+                              {{blogTitle}}
+                          </h2>
+                          <h4>Read the Story <a href="{{blogLink}}">Here</a></h4>
+                                <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on {{blogDate}}</p>
                                 <p class="post-subtitle">
                                   <span class='blog-body'>
                                     {{blogBody}}
@@ -136,60 +137,54 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <form class="form-horizontal" method="post" action="/api/users">
+                    <form class="form-horizontal" id="form-blogPost" method="post" action="/api/blogs">
                         <fieldset>
 
                             <!-- Form Name -->
-                            <legend id='createAnAccount'>Create New User</legend>
+                            <legend id='createABlogPost'>Create a New Blog Post</legend>
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="name">Name</label>
-                                <div class="col-md-4">
-                                    <input id="name" name="name" type="text" placeholder="First and Last" class="clear form-control input-md" required="">
-
+                                <label class="col-md-2 control-label" for="blogPoster">Username</label>
+                                <div class="col-md-10">
+                                    <input id="blogPoster" name="blogPoster" type="text" placeholder="Username" class="clear form-control input-md" required="">
                                 </div>
                             </div>
-
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Username</label>
-                                <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="Username" class=" clear form-control input-md">
-
+                                <label class="col-md-2 control-label" for="blogTitle">Blog Title</label>
+                                <div class="col-md-10">
+                                    <input id="blogTitle" name="blogTitle" type="text" placeholder="Title of Post" class="clear form-control input-md" required="">
                                 </div>
                             </div>
-
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="password">Password</label>
-                                <div class="col-md-4">
-                                    <input id="password" name="password" type="password" placeholder="password" class="clear form-control input-md">
-
+                                <label class="col-md-2 control-label" for="blogLink">Link to Story</label>
+                                <div class="col-md-10">
+                                    <input id="blogLink" name="blogLink" type="text" placeholder="Full Link to the Story" class="clear form-control input-md" required="">
                                 </div>
                             </div>
-
+                            <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="email">Email</label>
-                                <div class="col-md-4">
-                                    <input id="email" name="email" type="text" placeholder="email" class="clear form-control input-md">
-
+                                <label class="col-md-2 control-label" for="blogDate">Date Posted</label>
+                                <div class="col-md-10">
+                                    <input id="blogDate" name="blogDate" type="text" placeholder="Date of Post" class="clear form-control input-md" required="">
                                 </div>
                             </div>
-
+                            <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="imgUrl">Image URL</label>
-                                <div class="col-md-4">
-                                    <input id="imgUrl" name="imgUrl" type="text" placeholder="image url" class="clear form-control input-md">
+                                <label class="col-md-2 control-label" for="blogBody">Blog Content</label>
+                                <div class="col-md-10">
+                                    <textarea rows="20" id="blogBody" name="blogBody" type="text" placeholder="Please write your content here." class=" clear form-control input-md"></textarea>
 
                                 </div>
                             </div>
 
                             <!-- Button -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="singlebutton">Create</label>
+                                <label class="col-md-2 control-label" for="createPost"></label>
                                 <div class="col-md-4">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                                    <button id="createPost" name="createPost" class="btn btn-primary">Post!</button>
                                 </div>
                             </div>
                         </fieldset>
