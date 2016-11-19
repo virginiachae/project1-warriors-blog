@@ -49,7 +49,7 @@ $(document).ready(function() {
           // renderBlog(ele);
           console.log(commentData);
         };
-          // location.reload();
+          location.reload();
     })
 });
 

@@ -5,4 +5,7 @@
 .edit-blog-body{
 	height: 200px;
 	width: 900px;
+	word-wrap: break-word;
+	word-break: break-all;
+	white-space: normal;
 }
