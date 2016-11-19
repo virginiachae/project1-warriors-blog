@@ -3,10 +3,10 @@ var db = require("./models");
 
 
 var blogList = [{
-    blogBody: 'this is our first blog post. hello word. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    blogBody: 'This is garbage, someone just made up this story.  Klay is not going anywhere.  I need people on the internet to stop making up stuff. Just cause it sounds good for your team does not mean its reality',
     blogPoster: 'jhall33'
 }, {
-    blogBody: 'this is the second... test test. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    blogBody: 'The only player I like is Draymond, I dont know why people even bother writing about any other player.  Once I saw him at Starbucks and he bought me a pumpkin spice latte and thats all I need to know he was the greatest player in the history of the game',
     blogPoster: 'vchae33'
 }]
 
