@@ -95,9 +95,10 @@
                         <div class="post-preview">
                             <!-- <a href="post.html"> -->
                             <h2 class="post-title">
-                            Rumor has Klay to Boston? Story <a href="http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/">Here</a>
+                            {{blogTitle}}
                         </h2>
-                            <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> on September 24, 2014</p>
+                        <h4>Read the Story <a href="{{blogLink}}">Here</a></h4>
+                            <p class="post-meta">Posted by <b>{{blogPoster.username}}</b> {{blogDate}}</p>
                             <p class="post-subtitle">
                                 {{blogBody}}
                             </p>
@@ -140,7 +141,7 @@
         <section id='user-form' class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <form class="form-horizontal" method="post" action="/api/users">
+                    <form class="form-horizontal" id="form-user" method="post" action="/api/users">
                         <fieldset>
                             <!-- Form Name -->
                             <legend id='createNewAccount'>Create New User</legend>
@@ -162,7 +163,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="password">Password</label>
                                 <div class="col-md-4">
-                                    <input id="password" name="password" type="text" placeholder="password" class="clear form-control input-md">
+                                    <input id="password" name="password" type="password" placeholder="password" class="clear form-control input-md">
                                   </div>
                                 </div>
                                 <!-- Text input: email-->

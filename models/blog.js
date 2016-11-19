@@ -8,6 +8,9 @@ var CommentsSchema = new Schema({
 });
 
 var BlogSchema = new Schema({
+ blogTitle: String,
+ blogLink: String,
+ blogDate: String,
  blogBody: String,
  blogPoster: {
       type: Schema.Types.ObjectId,
