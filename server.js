@@ -30,8 +30,8 @@ app.get('/createPost', function homepage (req, res) {
   res.sendFile(__dirname + '/views/createPost.html');
 });
 
-app.get('/teamfeed', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/teamFeed.html');
+app.get('/userAdmin', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/userAdmin.html');
 });
 
 
@@ -52,6 +52,8 @@ app.put('/api/blogs/:blogId', controllers.blog.update);
 app.post('/api/blogs/:id/comments', controllers.blog.createComment);
 
 app.post('/api/blogs/', controllers.blog.create);
+
+app.delete('/api/users/:userId', controllers.user.destroy);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
