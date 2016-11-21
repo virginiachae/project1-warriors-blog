@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     function renderBlog(blog) {
         var blogHtml = blogTemplate(blog);
-        $('#blogs').append(blogHtml);
+        $('#blogs').prepend(blogHtml);
     }
 
     $.ajax({
@@ -26,7 +26,9 @@ $(document).ready(function() {
             renderBlog(ele);
         })
     };
-
+    $('#continuebutton').on("click", function() {
+      location.reload();
+      });
 
     $('.form-horizontal').on('submit', createUserAccount);
     $('#blogs').on('submit', '#addCommentForm', function(e) {
@@ -72,8 +74,9 @@ function createUserAccount(e) {
 
     function createSucc(user) {
         $('.clear').val('');
-        renderBlog(user);
+        $('#le-alert').addClass('in');
+        // renderBlog(user);
     };
-    location.reload();
+    // location.reload();
 
 };

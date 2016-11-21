@@ -78,7 +78,14 @@ function createUserAccount(e) {
 
     function createSucc(user) {
         $('.clear').val('');
+        swal({
+  title: "Error!",
+  text: "Here's my error message!",
+  type: "error",
+  confirmButtonText: "Cool"
+});
     };
+    $('#le-alert').addClass('in');
     location.reload();
 
 };
