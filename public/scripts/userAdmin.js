@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     function renderUser(user) {
         var userHtml = userTemplate(user);
-        $('#userFeed').append(userHtml);
+        $('#userId').append(userHtml);
     }
 
     $.ajax({
@@ -30,7 +30,7 @@ $(document).ready(function() {
     };
 
 
-$('#userFeed').on('click', '.delete-user', handleDeleteUserClick);
+$('#userId').on('click', '.delete-user', handleDeleteUserClick);
 
 });
 
