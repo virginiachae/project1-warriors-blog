@@ -9,11 +9,6 @@ $(document).ready(function() {
 
     });
 
-
-
-
-
-
     $('#form-user').on('submit', createUserAccount);
     $('#form-blogPost').on('submit', createBlogPost);
     $('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
@@ -61,7 +56,7 @@ function renderBlog(blog) {
     var blogSource = $('#blog-template').html();
     var blogTemplate = Handlebars.compile(blogSource);
     var blogHtml = blogTemplate(blog);
-    $('#blogsTarget').append(blogHtml);
+    $('#blogsTarget').prepend(blogHtml);
 }
 
 
