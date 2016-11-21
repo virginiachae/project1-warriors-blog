@@ -2,7 +2,7 @@
 
 A blog documenting our thoughts and opinions on the Golden State Warriors.
 
-[Link to project hosted on Heroku] (https://infinite-tor-34475.herokuapp.com/)
+[Link to project hosted on Heroku] (https://serene-caverns-24953.herokuapp.com/)
 
 ## Technologies Used
 
