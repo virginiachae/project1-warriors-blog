@@ -59,7 +59,7 @@ function createComment(req, res) {
                 console.log('error is: ', err);
             } else {
                 console.log(foundBlog);
-                foundBlog.blogComment.push(req.body);
+                foundBlog.blogComment.unshift(req.body);
                 foundBlog.save()
                 res.json(foundBlog);
             }
