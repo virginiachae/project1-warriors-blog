@@ -61,7 +61,7 @@ function renderBlog(blog) {
     var blogSource = $('#blog-template').html();
     var blogTemplate = Handlebars.compile(blogSource);
     var blogHtml = blogTemplate(blog);
-    $('#blogsTarget').append(blogHtml);
+    $('#blogsTarget').prepend(blogHtml);
 }
 
 
