@@ -28,8 +28,4 @@ A blog documenting our thoughts and opinions on the Golden State Warriors.
   * Remove subscribers
 
 ## Planned Features
-* Integrate authentication and authorization in order to access the administrator section of the blog
-
----
-
-##### Screenshot(s) (optional)
+* Integrate authentication and authorization in order to access the administrator section of the blog.
