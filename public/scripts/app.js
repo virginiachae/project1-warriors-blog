@@ -9,11 +9,6 @@ $(document).ready(function() {
 
     });
 
-
-
-
-
-
     $('#form-user').on('submit', createUserAccount);
     $('#form-blogPost').on('submit', createBlogPost);
     $('#blogsTarget').on('click', '.delete-blog', handleDeleteBlogClick);
