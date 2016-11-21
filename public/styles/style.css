@@ -9,3 +9,7 @@
 	word-break: break-all;
 	white-space: normal;
 }
+
+#createNewAccount {
+	text-align: center;
+}

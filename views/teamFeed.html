@@ -16,7 +16,7 @@
 
     <!-- Theme CSS -->
     <link href="styles/css/clean-blog.min.css" rel="stylesheet">
-    <link href="styles/style.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="/styles/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -28,11 +28,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="scripts/mainView.js"></script>
+    <script src="scripts/teamFeed.js"></script>
 
 </head>
 
@@ -54,16 +54,19 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#blogs">Home</a>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="#about">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="#createNewAccount">Create New Account</a>
+                        <a href="post.html">Sample Post</a>
                     </li>
                     <li>
-                        <a href="#login">Login</a>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <button id="createUser" name="createUser">Creat User</button>
                     </li>
                 </ul>
             </div>
@@ -73,6 +76,7 @@
     </nav>
 
     <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="background-image: url('http://i.imgur.com/aZROrVf.jpg')">
         <div class="container">
             <div class="row">
@@ -88,8 +92,7 @@
     </header>
 
 
-    <!-- Main Content -->
-    <div id="blogs">
+    <div id="teamFeed">
         <script id="blog-template" type="text/x-handlebars-template">
             <div class="container">
                 <div class="row">
@@ -114,87 +117,27 @@
                             <div>{{commentBody}}</div>
                         </div>
                         <br> {{/each}}
-                        <div class='panel-footer'>
-                            <form class="commentForm" id="addCommentForm" data-id={{_id}}>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="user" placeholder="please enter your username" data-id={{_id}}>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" name="commentBody" placeholder="leave a comment!" cols="50" data-id={{_id}}></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-default">Add comments</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </script>
     </div>
 
-    <!-- Older Posts -->
-    <ul class="pager">
-        <li class="next">
-            <a href="#">Older Posts &rarr;</a>
-        </li>
-    </ul>
 
-    <!-- New User Form -->
-    <div class="col-md-10 col-md-offset-1">
-        <section id='user-form' class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <form class="form-horizontal" id="form-user" method="post" action="/api/users">
-                        <fieldset>
-                            <!-- Form Name -->
-                            <legend id='createNewAccount'>Subscribe to our Newsletter</legend>
-                            <!-- Text input: Name-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="name">Name</label>
-                                <div class="col-md-4">
-                                    <input id="name" name="name" type="text" placeholder="First and Last" class="clear form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input: username-->
-                            <!-- <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Username</label>
-                                <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="Username" class=" clear form-control input-md">
-                                </div>
-                            </div> -->
-                            <!-- Text input: password-->
-                            <!-- <div class="form-group">
-                                <label class="col-md-4 control-label" for="password">Password</label>
-                                <div class="col-md-4">
-                                    <input id="password" name="password" type="password" placeholder="password" class="clear form-control input-md">
-                                  </div>
-                                </div> -->
-                                <!-- Text input: email-->
-                                <div class="form-group">
-                                  <label class="col-md-4 control-label" for="email">Email</label>
-                                  <div class="col-md-4">
-                                    <input id="email" name="email" type="text" placeholder="email" class="clear form-control input-md">
-                                  </div>
-                            </div>
-                            <!-- Text input: image url-->
-                            <!-- <div class="form-group">
-                                <label class="col-md-4 control-label" for="imgUrl">Image URL</label>
-                                <div class="col-md-4">
-                                    <input id="imgUrl" name="imgUrl" type="text" placeholder="image url" class="clear form-control input-md">
-                                </div>
-                            </div> -->
-                            <!-- Button to submit -->
-                            <div class="form-group">
-                                <!-- <label class="col-md-4 control-label" for="singlebutton">Create</label> -->
-                                <div class="col-md-4 col-xs-offset-5">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Subscribe</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
+
+
+                                <!-- Form Name -->
+
+
+
+
+<!-- Pager -->
+      <ul class="pager">
+          <li class="next">
+            <a href="#">Older Posts &rarr;</a>
+          </li>
+        </ul>
+
 
     <!-- Footer -->
     <footer>
@@ -239,8 +182,6 @@
 
 
 
-    <!-- jQuery -->
-    <script src="/styles/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="styles/vendor/bootstrap/js/bootstrap.min.js"></script>
