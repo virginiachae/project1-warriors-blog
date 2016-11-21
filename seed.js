@@ -1,42 +1,28 @@
 var db = require("./models");
 
-
-
 var blogList = [{
-    blogTitle: 'Klay to Boston?',
-    blogLink: 'http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/',
+    blogTitle: 'Our First Post',
+    blogLink: 'http://www.nba.com/warriors/?tmd=1',
     blogDate: 'November 14, 2016',
-    blogBody: 'this is our first blog post. hello word. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    blogPoster: 'jhall33'
-}, {
-    blogTitle: 'Stop Messing With Klay',
-    blogLink: 'http://www.mercurynews.com/2016/11/14/the-anatomy-of-a-bogus-trade-rumor-klay-thompson-to-boston-edition/',
-    blogDate: 'November 19, 2016',
-    blogBody: 'this is the second... test test. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    blogPoster: 'vchae33'
+    blogBody: 'hello word. welcome to our blog where we will be expressing our humble opinions and thoughts about the best basketball team on the planet: The Golden State Warriors. Enjoy!',
+    blogPoster: 'vachae'
 }]
 
 var usersList = [{
     name: 'Jonathan Hall',
     username: 'jhall33',
-    password: 'warriorsblog',
     email: 'jonathanphall@me.com',
-    imgUrl: 'http://www.vectortemplates.com/raster/batman/batman-logo-big.gif',
-    isAdmin: true
+    imgUrl: 'http://www.vectortemplates.com/raster/batman/batman-logo-big.gif'
 }, {
     name: 'Virgina Chae',
-    username: 'vchae33',
-    password: 'warriorsblog',
+    username: 'vachae',
     email: 'chae.virginia@gmail.com',
-    imgUrl: 'http://www.officialpsds.com/images/thumbs/Golden-State-Warriors-2013-14-Logo-psd95373.png',
-    isAdmin: true
+    imgUrl: 'http://www.officialpsds.com/images/thumbs/Golden-State-Warriors-2013-14-Logo-psd95373.png'
 }, {
     name: 'Justin Castillia',
     username: 'jcastillia33',
-    password: 'generalassembly',
-    email: 'unknown',
-    imgUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/002/307/3bd6ee0.jpg',
-    isAdmin: false
+    email: 'jcastilla@fakeemail.com',
+    imgUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/002/307/3bd6ee0.jpg'
 }];
 
 db.User.remove({}, function(err, users) {
