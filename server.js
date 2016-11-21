@@ -30,7 +30,7 @@ app.get('/createPost', function homepage (req, res) {
   res.sendFile(__dirname + '/views/createPost.html');
 });
 
-app.get('/userAdmin', function homepage (req, res) {
+app.get('/deleteUserAdmin', function homepage (req, res) {
   res.sendFile(__dirname + '/views/userAdmin.html');
 });
 
