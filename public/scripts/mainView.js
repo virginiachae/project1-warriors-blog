@@ -48,6 +48,7 @@ $(document).ready(function() {
         function createCommSucc() {
           // renderBlog(ele);
           console.log(commentData);
+          swal("Good job!", "You clicked the button!", "success");
         };
           location.reload();
     })

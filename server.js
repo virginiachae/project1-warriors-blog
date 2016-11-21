@@ -30,6 +30,12 @@ app.get('/createPost', function homepage (req, res) {
   res.sendFile(__dirname + '/views/createPost.html');
 });
 
+app.get('/teamfeed', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/teamFeed.html');
+});
+
+
+
 
 app.get('/api/users', controllers.user.index);
 
