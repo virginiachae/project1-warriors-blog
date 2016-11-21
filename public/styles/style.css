@@ -13,3 +13,9 @@
 #createNewAccount {
 	text-align: center;
 }
+
+#userImg {
+	height: 50px;
+	width: 50px;
+	float: left;
+}
