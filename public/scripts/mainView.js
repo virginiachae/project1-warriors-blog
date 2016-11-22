@@ -27,6 +27,9 @@ $(document).ready(function() {
         })
     };
 
+    $('#continuebutton').on("click", function() {
+        location.reload();
+    });
 
     $('.form-horizontal').on('submit', createUserAccount);
     $('#blogs').on('submit', '#addCommentForm', function(e) {
@@ -41,18 +44,20 @@ $(document).ready(function() {
             success: createCommSucc,
             error: createCommErr
         })
+
         function createCommErr(error) {
             console.error('error is ', error);
         }
 
         function createCommSucc() {
-          // renderBlog(ele);
-          console.log(commentData);
-          swal("Good job!", "You clicked the button!", "success");
+            // renderBlog(ele);
+            console.log(commentData);
+            swal("Good job!", "You clicked the button!", "success");
         };
-          location.reload();
+        location.reload();
     })
 });
+
 
 function createUserAccount(e) {
     e.preventDefault();
@@ -72,8 +77,6 @@ function createUserAccount(e) {
 
     function createSucc(user) {
         $('.clear').val('');
-        renderBlog(user);
+        $('#le-alert').addClass('in');
     };
-    location.reload();
-
 };
