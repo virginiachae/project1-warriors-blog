@@ -48,7 +48,6 @@ function getBlogErr(error) {
 function getBlogSucc(json) {
     json.forEach(function(ele) {
         renderBlog(ele);
-        // console.log(ele);
     })
 };
 
